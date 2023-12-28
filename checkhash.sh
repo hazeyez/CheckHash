@@ -10,6 +10,16 @@ print_red() {
   echo -e "\e[31m$1\e[0m"
 }
 
+# Function to check if a string is a valid MD5 hash
+is_valid_md5() {
+  [[ "$1" =~ ^[0-9a-f]{32}$ ]]
+}
+
+# Function to check if a string is a valid SHA-256 hash
+is_valid_sha256() {
+  [[ "$1" =~ ^[0-9a-f]{64}$ ]]
+}
+
 # Check if the correct number of arguments is provided
 if [ "$#" -ne 3 ]; then
   echo "Usage: $0 [-sha256|-md5] <expected_hash> <filename>"
@@ -27,12 +37,20 @@ if [ ! -e "$filename" ]; then
   exit 1
 fi
 
-# Calculate the hash based on the specified algorithm
+# Validate the hash based on the specified algorithm
 case "$algorithm" in
   -sha256)
+    if ! is_valid_sha256 "$expected_hash"; then
+      print_red "Error: Invalid SHA-256 hash."
+      exit 1
+    fi
     actual_hash=$(sha256sum "$filename" | awk '{print $1}')
     ;;
   -md5)
+    if ! is_valid_md5 "$expected_hash"; then
+      print_red "Error: Invalid MD5 hash."
+      exit 1
+    fi
     actual_hash=$(md5sum "$filename" | awk '{print $1}')
     ;;
   *)
