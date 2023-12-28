@@ -1,5 +1,27 @@
 #!/bin/bash
 
+# CheckHash v1.0 
+# Author: hazeyez
+# Copywright: a/k/a hazeyez (2023)
+# License: GNU GPL Version 3, dated June 29, 2007 ("GPL3"). You can obtain a copy of the license at https://www.gnu.org/licenses/gpl-3.0-standalone.html
+# Dual License: This software is distributed under GPL3 with additional restrictions; conveying commercial use or resale of any verbatim copies,...
+##############  modified source versions, or non-source forms as defined within GPL3 sections 4, 5, and 6, are strictly prohibited without express...
+##############  written consent and a previously agreed-upon compensation or licensing agreement with the original author. Any such reissuance...
+##############  of this software under the aforementioned GPL3 sections, or other, in a non-commercial use or resale form must cite the original copywright.
+##############  By downloading or copying the software as a whole or in part, you agree to these terms. If any provision of this Dual License conflicts...
+##############  with the terms of GPL3, the terms of this Dual License shall supersede any such terms in GPL3 for legal means.
+
+#####################################################
+####  _                                          ####
+#### | |                                         ####
+#### | |__    __ _  ____  ___  _   _   ___  ____ ####
+#### | '_ \  / _` ||_  / / _ \| | | | / _ \|_  / ####
+#### | | | || (_| | / / |  __/| |_| ||  __/ / /  ####
+#### |_| |_| \__,_|/___| \___| \__, | \___|/___| ####
+####                            __/ |            ####
+####                           |___/             ####
+##################################################### 
+
 # Function to print text in green
 print_green() {
   echo -e "\e[32m$1\e[0m"
