@@ -2,7 +2,9 @@
 
 ## Overview
 
-The `checkhash.sh` script is a Bash script designed to verify the integrity of a file by comparing its hash with an expected hash value. The script supports two hash algorithms: SHA-256 and MD5. It calculates the hash of the specified file using the chosen algorithm and compares it with the provided expected hash. The result is displayed in colored text, indicating whether the hashes match or not.
+The `checkhash.sh` script is a Bash script designed to verify the integrity of a file by comparing its hash with an expected hash value. The script supports two hash algorithms: SHA-256 and MD5. It calculates the hash of the specified file using the chosen algorithm and compares it with the provided expected hash. 
+
+The result is displayed in colored text, indicating whether the hashes match or not. It will also validate the hash cipher and alert you if it is an invalid SHA-256 or MD5 hash, and also alerts if the file you're testing does not exist. 
 
 ## Usage
 
@@ -30,6 +32,41 @@ To use the script, follow these steps:
     ```
 
 ### Example
+![Example shell file](/images/checkhash_shell.PNG)
 
-```bash
-./checkhash.sh -sha256 abcdef1234567890 <filename>
+***
+
+# Create an alias in linux
+
+## Overview
+
+Creating an alias in linux allows you to run the file as a simple command, from any working directory, instead of having to use the full file name and path for it to run.
+You can accomplish this by editing your ~home user's `.rc` file. In this case, I am using `Z shell` in Kali Linux. Therefore my `.rc` file is `.zshrc` in my ~home directory. 
+
+### How-to
+
+Use your preferred text editor to open the `.rc` file in your home dir. In this case, I use `nano` text editor:
+
+1. `nano ~/.zshrc`
+2. You can create a new line anywhere in the file, but I like to create a new section commented-out as `# User-created aliases:`
+3. Under this section, add the alias line and replace `'checkhash'` with whatever you want the alias command to be that will call the file. (E.g. 'check' or 'ch')
+
+   ```bash
+   alias checkhash='/path/to/file/checkhash.sh'
+   ```
+### Example
+![Example alias](/images/alias.PNG)
+
+4. Save the edited file, then refresh your shell using the `source` command:
+
+   ```bash
+   source ~/.zshrc
+   ```
+5. Then simply repeat the same steps of usage, except now you can call the file from any directory you're in with the `checkhash` command (or 'check' or 'ch' - whichever you used in your alias) and without a full file path to execute the script.
+### Example
+![Example command](/images/checkhash_alias.PNG)
+
+# ENJOY!
+
+
+
